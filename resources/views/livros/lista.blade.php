@@ -47,7 +47,7 @@
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</a>
 
-									<form action="/livros" method="post">
+									<form action="/livros" method="post" class="form-delete">
 										<input type="hidden" name="_token" value="{{csrf_token()}}">
 										<input type="hidden" name="_method" value="delete">
 										<input type="hidden" name="id" value="{{$livro->id}}">
