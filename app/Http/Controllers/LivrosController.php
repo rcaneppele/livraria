@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Livro;
+
 class LivrosController extends Controller {
 
 	public function lista() {
-		return view('livros/lista')->with('livros', []);
+		$livrosCadastrados = Livro::all();
+
+		return view('livros/lista')->with('livros', $livrosCadastrados);
 	}
 
 }
