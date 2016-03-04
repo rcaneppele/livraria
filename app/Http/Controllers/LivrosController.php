@@ -24,8 +24,22 @@ class LivrosController extends Controller {
 		return redirect('/livros')->with('msg', 'Livro cadastrado com sucesso!');
 	}
 
+	public function edita($id) {
+		$livro = Livro::find($id);
+		return view('livros/form')->with('livro', $livro);
+	}
+
+	public function altera(LivroRequest $request) {
+		$id = $request->input('id');
+		$livro = Livro::find($id);
+
+		$livro->update($request->all());
+
+		return redirect('/livros')->with('msg', 'Livro atualizado com sucesso!');
+	}
+
 	public function remove(Request $request) {
-		$id = $request->get('id');
+		$id = $request->input('id');
 
 		$livro = Livro::find($id);
 		$livro->delete();

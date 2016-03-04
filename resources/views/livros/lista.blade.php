@@ -43,7 +43,7 @@
 									{{$livro->isbn}}
 								</td>
 								<td>
-									<a href="#" class="btn btn-info">
+									<a href="/livros/{{$livro->id}}" class="btn btn-info">
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</a>
 
