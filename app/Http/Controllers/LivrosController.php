@@ -21,30 +21,37 @@ class LivrosController extends Controller {
 	public function cadastra(LivroRequest $request) {
 		Livro::create($request->all());
 
-		return redirect('/livros')->with('msg', 'Livro cadastrado com sucesso!');
+		return $this->redirectWithMessage('Livro cadastrado com sucesso!');
 	}
 
 	public function edita($id) {
 		$livro = Livro::find($id);
+
 		return view('livros/form')->with('livro', $livro);
 	}
 
 	public function altera(LivroRequest $request) {
-		$id = $request->input('id');
-		$livro = Livro::find($id);
-
+		$livro = $this->buscaLivroPorId($request);
 		$livro->update($request->all());
 
-		return redirect('/livros')->with('msg', 'Livro atualizado com sucesso!');
+		return $this->redirectWithMessage('Livro atualizado com sucesso!');
 	}
 
 	public function remove(Request $request) {
-		$id = $request->input('id');
-
-		$livro = Livro::find($id);
+		$livro = $this->buscaLivroPorId($request);
 		$livro->delete();
 
-		return redirect('/livros')->with('msg', 'Livro removido com sucesso!');
+		return $this->redirectWithMessage('Livro removido com sucesso!');
+	}
+
+	private function buscaLivroPorId($request) {
+		$id = $request->input('id');
+
+		return Livro::find($id);
+	}
+
+	private function redirectWithMessage($msg) {
+		return redirect('/livros')->with('msg', $msg);
 	}
 
 }
