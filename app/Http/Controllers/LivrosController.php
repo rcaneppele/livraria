@@ -20,7 +20,7 @@ class LivrosController extends Controller {
 	public function cadastra(LivroRequest $request) {
 		Livro::create($request->all());
 
-		return redirect('/livros');
+		return redirect('/livros')->with('msg', 'Livro cadastrado com sucesso!');
 	}
 
 }
