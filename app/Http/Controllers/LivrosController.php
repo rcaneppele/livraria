@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Livro;
-use Illuminate\Http\Request;
+use App\Http\Requests\LivroRequest;
 
 class LivrosController extends Controller {
 
@@ -17,7 +17,7 @@ class LivrosController extends Controller {
 		return view('livros/form');
 	}
 
-	public function cadastra(Request $request) {
+	public function cadastra(LivroRequest $request) {
 		Livro::create($request->all());
 
 		return redirect('/livros');

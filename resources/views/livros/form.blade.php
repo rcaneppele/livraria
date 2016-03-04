@@ -20,21 +20,21 @@
 					<div class="form-group">
 						<label for="nome" class="col-sm-2 control-label">Nome</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="nome" name="nome">
+							<input type="text" class="form-control" id="nome" name="nome" value="{{old('nome')}}">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="preco" class="col-sm-2 control-label">Preco</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="preco" name="preco">
+							<input type="text" class="form-control" id="preco" name="preco" value="{{old('preco')}}">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="isbn" class="col-sm-2 control-label">ISBN</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" id="isbn" name="isbn">
+							<input type="text" class="form-control" id="isbn" name="isbn" value="{{old('isbn')}}">
 						</div>
 					</div>
 				</fieldset>
