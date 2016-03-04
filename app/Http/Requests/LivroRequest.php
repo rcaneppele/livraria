@@ -14,7 +14,7 @@ class LivroRequest extends Request {
         return [
             'nome' => 'required|min:5|max:255',
             'preco' => 'required|numeric|between:1,999',
-            'isbn' => 'required|unique:livros'
+            'isbn' => 'required|unique:livros,isbn,'.$this->id
         ];
     }
 
