@@ -11,7 +11,7 @@
 		</div>
 			
 		<div class="panel-body">
-			<a href="livros/novo" class="btn btn-primary">
+			<a href="/livros/novo" class="btn btn-primary">
 				<span class="glyphicon glyphicon-plus"></span> Novo
 			</a>
 			
