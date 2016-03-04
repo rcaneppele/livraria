@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Livro;
 use App\Http\Requests\LivroRequest;
+use Illuminate\Http\Request;
 
 class LivrosController extends Controller {
 
@@ -21,6 +22,15 @@ class LivrosController extends Controller {
 		Livro::create($request->all());
 
 		return redirect('/livros')->with('msg', 'Livro cadastrado com sucesso!');
+	}
+
+	public function remove(Request $request) {
+		$id = $request->get('id');
+
+		$livro = Livro::find($id);
+		$livro->delete();
+
+		return redirect('/livros')->with('msg', 'Livro removido com sucesso!');
 	}
 
 }

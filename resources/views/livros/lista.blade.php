@@ -47,9 +47,15 @@
 										<span class="glyphicon glyphicon-edit"></span> Editar
 									</a>
 
-									<a href="#" class="btn btn-danger">
-										<span class="glyphicon glyphicon-trash"></span> Excluir
-									</a>
+									<form action="/livros" method="post">
+										<input type="hidden" name="_token" value="{{csrf_token()}}">
+										<input type="hidden" name="_method" value="delete">
+										<input type="hidden" name="id" value="{{$livro->id}}">
+
+										<button type="submit" class="btn btn-danger">
+											<span class="glyphicon glyphicon-trash"></span> Excluir
+										</button>
+									</form>
 								</td>
 							</tr>
 						@endforeach
